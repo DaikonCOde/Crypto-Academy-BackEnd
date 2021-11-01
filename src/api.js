@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
 import { schema } from './schema.js';
 import { rootValue } from './resolvers.js';
@@ -6,6 +7,8 @@ import { rootValue } from './resolvers.js';
 const app  = express();
 
 import './db/conectDB.js';
+
+app.use(cors())
 
 
 app.use('/graphql', graphqlHTTP({
